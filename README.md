@@ -29,7 +29,7 @@
 
 It's built with plain HTML, CSS and vanilla JavaScript. There are no frameworks, no dependencies and no build step.
 
-🔗 **Live demo:** _add your link here_
+🔗 **Live demo:** [quick-resume-gray.vercel.app](https://quick-resume-gray.vercel.app/)
 
 ## Features
 
@@ -69,17 +69,6 @@ quick-resume/
 ├── test/               # Playwright QA scripts
 └── README.md
 ```
-
-
-## Deploy
-
-It's a static site, so it deploys anywhere in seconds:
-
-- **Vercel / Netlify / Cloudflare Pages**: import the repo, leave the build command empty, and set the output directory to `site`
-- **GitHub Pages**: in *Settings → Pages*, deploy from the branch, using the `/site` folder (or move its contents to the repo root)
-
-If you use a custom domain, update the canonical, `og:url` and `og:image` URLs in `index.html`.
-
 
 ## Contributing
 
