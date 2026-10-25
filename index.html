@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>QuickResume · Free resume builder, no login</title>
+<meta name="description" content="Build a beautiful, ATS-friendly resume in minutes. 12 templates, live preview, custom colours and fonts, PDF export. Free, no login, and your data stays in your browser.">
+<meta name="theme-color" content="#fafaf9">
+<meta name="author" content="Tanay Biswas">
+<link rel="canonical" href="https://resumestudio.sites.tab.bot/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="QuickResume · Free resume builder, no login">
+<meta property="og:description" content="12 templates, live preview, colours, fonts and PDF export. Free and private: no sign-up, data stays in your browser.">
+<meta property="og:image" content="https://resumestudio.sites.tab.bot/assets/banner.jpeg">
+<meta property="og:url" content="https://resumestudio.sites.tab.bot/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="QuickResume · Free resume builder, no login">
+<meta name="twitter:description" content="12 templates, live preview, colours, fonts and PDF export. Free and private.">
+<meta name="twitter:image" content="https://resumestudio.sites.tab.bot/assets/banner.jpeg">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="fonts/Inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="resume.css">
+<style id="print-page-css"></style>
+</head>
+<body data-view="edit">
+<a class="skip" href="#editor">Skip to editor</a>
+<header class="topbar">
+  <a class="brand" href="./" aria-label="Resume Studio home">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="3" width="22" height="26" rx="4" fill="var(--ui-accent)"/><rect x="10" y="9" width="12" height="2.4" rx="1.2" fill="#fff"/><rect x="10" y="14.5" width="8" height="2" rx="1" fill="#fff" opacity=".75"/><rect x="10" y="19" width="12" height="2" rx="1" fill="#fff" opacity=".75"/></svg>
+    <span>QuickResume</span>
+  </a>
+  <span id="save-status" class="save-status" aria-live="polite">Saved</span>
+  <div class="top-actions">
+    <button type="button" class="btn btn-ghost hide-sm" id="templates-btn">Templates</button>
+    <!-- Info & About dropdown -->
+    <div class="menu-wrap" id="info-wrap">
+      <button type="button" class="btn btn-icon info-btn" id="info-btn" aria-haspopup="true" aria-expanded="false" aria-controls="info-menu" aria-label="About, Support & Feedback">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      </button>
+      <div class="menu info-menu" id="info-menu" role="menu" hidden>
+        <div class="info-menu-header">
+          <div class="info-menu-creator">
+            <img class="info-menu-avatar" id="info-menu-avatar" src="assets/logo.png" alt="QuickResume Logo">
+            <div class="info-menu-meta">
+              <span class="info-menu-title">QuickResume</span>
+              <span class="info-menu-tagline">Build a job-ready resume in minutes</span>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <button type="button" role="menuitem" data-menu="about">About the developer</button>
+        <button type="button" role="menuitem" data-menu="aboutus">About QuickResume</button>
+        <button type="button" role="menuitem" data-menu="support">Support QuickResume</button>
+        <button type="button" role="menuitem" data-menu="feedback">Send feedback</button>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary pdf-btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg><span>Download PDF</span></button>
+    <div class="menu-wrap">
+      <button type="button" class="btn btn-icon" id="menu-btn" aria-haspopup="true" aria-expanded="false" aria-controls="menu" aria-label="More options"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></button>
+      <div class="menu" id="menu" role="menu" hidden>
+        <button type="button" role="menuitem" data-menu="import">Import JSON…</button>
+        <button type="button" role="menuitem" data-menu="export">Export JSON</button>
+        <hr>
+        <button type="button" role="menuitem" data-menu="sample">Load sample resume</button>
+        <button type="button" role="menuitem" data-menu="clear">Clear sample / content</button>
+        <button type="button" role="menuitem" data-menu="fresh">Start fresh</button>
+      </div>
+      <input type="file" id="import-input" accept="application/json,.json" class="sr" aria-label="Import resume JSON" tabindex="-1">
+    </div>
+  </div>
+</header>
+
+<main class="app">
+  <section class="editor" id="editor" aria-label="Editor">
+    <div class="tabs" role="tablist" aria-label="Editor mode">
+      <button type="button" role="tab" id="tab-content" data-tab="content" aria-controls="content-pane" aria-selected="true">Content</button>
+      <button type="button" role="tab" id="tab-design" data-tab="design" aria-controls="design-pane" aria-selected="false">Design &amp; templates</button>
+    </div>
+    <div class="pane" id="content-pane" role="tabpanel" aria-labelledby="tab-content"></div>
+    <div class="pane" id="design-pane" role="tabpanel" aria-labelledby="tab-design" hidden></div>
+  </section>
+  <section class="preview" aria-label="Live preview">
+    <div class="preview-bar"><span id="page-count">1 page · A4</span><span class="hint-sm">Live preview</span></div>
+    <div class="preview-scroll" id="preview-scroll">
+      <div class="sheet-wrap" id="sheet-wrap"><div class="sheet" id="sheet"></div><div class="guides" id="guides" aria-hidden="true"></div></div>
+    </div>
+  </section>
+</main>
+
+<nav class="mobile-switch" aria-label="View">
+  <button type="button" data-view="edit" aria-pressed="true">Edit</button>
+  <button type="button" data-view="preview" aria-pressed="false">Preview</button>
+</nav>
+
+<dialog id="about" aria-labelledby="about-title">
+  <button type="button" class="btn-icon dlg-close" id="about-close" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <div id="about-body" class="about-body"></div>
+</dialog>
+
+    <dialog id="aboutus" aria-labelledby="aboutus-title">
+      <button type="button" class="btn-icon dlg-close" id="aboutus-close" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <div id="aboutus-body" class="about-body">
+        <h2 id="aboutus-title">About QuickResume</h2>
+        <p>QuickResume is a free, no‑login resume builder. It runs entirely in the browser, storing data locally so nothing ever leaves your device.</p>
+        <p>Features include 12 modern templates, live side‑by‑side preview, customizable fonts, colours, spacing, and PDF export via the browser’s print engine.</p>
+      </div>
+    </dialog>
+
+<dialog id="feedback" aria-labelledby="feedback-title">
+  <button type="button" class="btn-icon dlg-close" id="feedback-close" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <form id="feedback-form" class="feedback-body">
+    <h2 id="feedback-title">Share your feedback</h2>
+    <p class="feedback-note">Tell us what you think or how we can make Resume Studio better.</p>
+    <div class="feedback-fields">
+      <label class="fld"><span>Feedback type</span><select name="type"><option>Suggestion</option><option>Bug report</option><option>Feature request</option><option>Other</option></select></label>
+      <label class="fld"><span>How was your experience?</span><select name="rating"><option value="5">Excellent</option><option value="4">Good</option><option value="3">Okay</option><option value="2">Poor</option><option value="1">Very poor</option></select></label>
+      <label class="fld"><span>Your message</span><textarea name="message" rows="5" minlength="10" required placeholder="What should we know?"></textarea></label>
+    </div>
+    <button type="submit" class="btn btn-primary feedback-submit">Submit</button>
+    <p class="feedback-footnote">Your email app will open with the feedback ready to send. Nothing is submitted automatically.</p>
+  </form>
+</dialog>
+
+<dialog id="support" aria-labelledby="support-title"></dialog>
+
+<div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+<div id="print-root" aria-hidden="true"></div>
+<noscript><p class="noscript">QuickResume needs JavaScript to run.</p></noscript>
+<script src="app.js" defer></script>
+</body>
+</html>
