@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo-full.svg" alt="Quick Resume" height="72">
+  <img src="assets/logo.png" alt="Quick Resume" height="72">
 </p>
 
 <p align="center">
@@ -21,7 +21,7 @@
   <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License">
 </p>
 
-![Quick Resume banner](assets/banner.png)
+![Quick Resume banner](assets/banner.jpeg)
 
 ## About
 
@@ -70,37 +70,6 @@ quick-resume/
 └── README.md
 ```
 
-## Getting Started
-
-No installation needed. Clone the repo and open it with any static server.
-
-```bash
-git clone https://github.com/Tanay8n/quick-resume.git
-cd quick-resume/site
-```
-
-**Option 1: VS Code**
-Install the **Live Server** extension, right-click `index.html` and choose **Open with Live Server**.
-
-**Option 2: Python**
-```bash
-python3 -m http.server 8080
-```
-Then open `http://localhost:8080`.
-
-## Configuration
-
-Your developer links (used in the *About Developer* section) are at the top of `site/app.js`:
-
-```js
-const DEV_CONFIG = {
-  name: 'Tanay Biswas',
-  github: 'https://github.com/Tanay8n',
-  email: 'tanay8@gmail.com',
-  buyMeACoffee: 'https://buymeacoffee.com/', // replace with your page
-  portfolio: 'https://tanaybiswas.me',
-};
-```
 
 ## Deploy
 
@@ -111,15 +80,6 @@ It's a static site, so it deploys anywhere in seconds:
 
 If you use a custom domain, update the canonical, `og:url` and `og:image` URLs in `index.html`.
 
-## Running Tests
-
-```bash
-pip install playwright
-python -m playwright install chromium
-python3 test/qa.py http://localhost:8080/ /tmp/qa
-```
-
-The QA script loads the app, edits fields, checks autosave, switches through all 12 templates, exports each one to PDF, and verifies the mobile layout.
 
 ## Contributing
 
@@ -138,11 +98,10 @@ Distributed under the MIT License. See `LICENSE` for details.
 ## Author
 
 **Tanay Biswas**
-B.Tech CSE (AI & ML), JIS College of Engineering
 
 - 🌐 Portfolio: [tanaybiswas.me](https://tanaybiswas.me)
 - 💻 GitHub: [@Tanay8n](https://github.com/Tanay8n)
-- 💼 LinkedIn: [tanay-biswas-8n](https://www.linkedin.com/in/tanay-biswas-8n)
+- 💼 LinkedIn: [tanay-biswas-8n](https://www.linkedin.com/in/tanay-biswas-8n?utm_source=share_via&utm_content=profile&utm_medium=member_android)
 - 📧 Email: tanay8@gmail.com
 
 ---
