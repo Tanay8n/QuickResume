@@ -8,8 +8,8 @@
 
 <p align="center">
   <a href="#features">Features</a> •
-  <a href="#getting-started">Getting Started</a> •
-  <a href="#deploy">Deploy</a> •
+  <a href="#tech-stack">Tech Stack</a> •
+  <a href="#project-structure">Project Structure</a> •
   <a href="#author">Author</a>
 </p>
 
